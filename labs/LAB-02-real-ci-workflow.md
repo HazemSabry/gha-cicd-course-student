@@ -18,6 +18,15 @@ Open this file in your repository:
 
 `.github/workflows/02-ci.yml`
 
+## What This Workflow File Contains
+
+This workflow adds the first real CI ideas:
+
+- `on` includes the triggers for code and test changes
+- `actions/checkout` brings the repository onto the runner
+- `actions/setup-python` prepares Python on the runner
+- `Run tests` is the verification step that gives the main CI result
+
 ## Step 1: Read the Workflow File
 
 Read the file once before doing anything else.

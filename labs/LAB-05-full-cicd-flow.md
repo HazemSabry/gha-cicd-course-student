@@ -24,6 +24,18 @@ Open these files in your repository:
 - `.github/workflows/03-build-artifact.yml`
 - `.github/workflows/04-deploy.yml`
 
+## What These Workflow Files Are Teaching
+
+In this lab, each workflow has one clear role:
+
+- `02-ci.yml` verifies the code with tests
+- `03-build-artifact.yml` creates and saves the package
+- `04-deploy.yml` delivers the saved package and runs a smoke test
+
+That is why this lab is useful:
+
+you can see the same story across multiple small workflows.
+
 ## Step 1: Read the Workflow Comments First
 
 Open the three workflow files and read the comments at the top and above the steps.

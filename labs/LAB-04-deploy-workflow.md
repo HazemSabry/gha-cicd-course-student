@@ -19,6 +19,16 @@ Open this file in your repository:
 
 `.github/workflows/04-deploy.yml`
 
+## What This Workflow File Contains
+
+This workflow teaches delivery using the package created earlier:
+
+- `workflow_run` starts deploy after the build workflow finishes
+- `Download build artifact` gets the saved package
+- `Load Docker image` restores that package as an image
+- `Start container` runs the packaged app
+- `Smoke test deployed app` checks that the app responds
+
 ## Step 1: Read the Workflow File
 
 Read the file once before running anything.

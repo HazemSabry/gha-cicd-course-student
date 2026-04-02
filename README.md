@@ -66,6 +66,9 @@ Use these after the main course if you want a little more context:
 3. [Runner Types](docs/help/05-runner-types.md)
 4. [Trigger Reference](docs/help/06-trigger-reference.md)
 5. [Next Steps: Matrix and Secrets](docs/06-next-steps-matrix-and-secrets.md)
+6. [Full Containerized CI/CD Example](docs/07-full-containerized-cicd-example.md)
+7. [How ACR and AKS Fit the Story](docs/08-how-acr-and-aks-fit-the-story.md)
+8. [Lab 06: Full Containerized CI/CD Pipeline](labs/LAB-06-full-containerized-cicd-pipeline.md)
 
 ## After Day 2
 

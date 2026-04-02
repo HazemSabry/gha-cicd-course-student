@@ -1,0 +1,96 @@
+# This is a read-only teaching example.
+# It shows how the same CI/CD story can extend to Azure Container Registry and AKS.
+# It is not part of the core beginner labs.
+name: Azure ACR and AKS Example
+
+on:
+  # Keep the trigger simple in this teaching example.
+  push:
+    branches:
+      - main
+
+env:
+  # These are example placeholders only.
+  ACR_LOGIN_SERVER: example.azurecr.io
+  IMAGE_NAME: tiny-health-app
+  AKS_NAMESPACE: demo
+  AKS_DEPLOYMENT: tiny-health-app
+  AKS_CONTAINER: tiny-health-app
+
+jobs:
+  verify:
+    # CI still starts by checking whether the change is safe.
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+  build-and-push-image:
+    # After CI passes, package the app and push the image to ACR.
+    needs: verify
+    runs-on: ubuntu-latest
+    outputs:
+      image_tag: ${{ steps.image-tag.outputs.image_tag }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set image tag
+        # Create one simple tag so the pushed image is easy to trace.
+        id: image-tag
+        run: |
+          IMAGE_TAG="run-${GITHUB_RUN_NUMBER}"
+          echo "image_tag=$IMAGE_TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Log in to ACR
+        # In a real project, these values would come from GitHub secrets.
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.ACR_LOGIN_SERVER }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: Build and push image
+        # In this cloud-shaped version, the packaged output is pushed to ACR.
+        run: |
+          docker build \
+            -t "${ACR_LOGIN_SERVER}/${IMAGE_NAME}:${{ steps.image-tag.outputs.image_tag }}" \
+            .
+          docker push "${ACR_LOGIN_SERVER}/${IMAGE_NAME}:${{ steps.image-tag.outputs.image_tag }}"
+
+  deploy-to-aks:
+    # Delivery uses the same image that was already pushed to ACR.
+    needs: build-and-push-image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Azure login
+        # Real projects use secrets for cloud credentials.
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Set AKS context
+        # Connect the runner to the target AKS cluster.
+        uses: azure/aks-set-context@v4
+        with:
+          resource-group: ${{ secrets.AKS_RESOURCE_GROUP }}
+          cluster-name: ${{ secrets.AKS_CLUSTER_NAME }}
+
+      - name: Deploy image to AKS
+        # Update the cluster to run the exact image that was built and pushed earlier.
+        run: |
+          kubectl set image "deployment/${AKS_DEPLOYMENT}" \
+            "${AKS_CONTAINER}=${ACR_LOGIN_SERVER}/${IMAGE_NAME}:${{ needs.build-and-push-image.outputs.image_tag }}" \
+            -n "${AKS_NAMESPACE}"
+          kubectl rollout status "deployment/${AKS_DEPLOYMENT}" -n "${AKS_NAMESPACE}" --timeout=5m

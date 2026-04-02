@@ -29,6 +29,16 @@ Open this file in your repository:
 
 `.github/workflows/01-hello.yml`
 
+## What This Workflow File Contains
+
+This workflow teaches the smallest useful GitHub Actions shape:
+
+- `name` gives the workflow a visible title
+- `on` tells GitHub when to run it
+- `jobs` groups the work
+- `runs-on` chooses the runner machine
+- `steps` lists the actions inside the job
+
 ## Step 1: Open the Workflow File
 
 Go to the `Code` tab.

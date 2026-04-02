@@ -115,3 +115,4 @@ Learn these after you are comfortable with:
 - [CI vs CD](05-ci-vs-cd.md)
 - [Trigger Reference](help/06-trigger-reference.md)
 - [Glossary](help/03-glossary.md)
+- [Full Containerized CI/CD Example](07-full-containerized-cicd-example.md)

@@ -22,6 +22,16 @@ Open this file in your repository:
 
 `.github/workflows/03-build-artifact.yml`
 
+## What This Workflow File Contains
+
+This workflow keeps the CI check and adds packaging:
+
+- `workflow_dispatch` lets you run it manually
+- `Run tests` verifies the code before packaging
+- `Build Docker image` creates the package
+- `Save Docker image as artifact file` turns the image into a saved file
+- `Upload build artifact` stores that file for later use
+
 ## Step 1: Read the Workflow File
 
 Read the file once before running it.
