@@ -38,7 +38,7 @@ You should see the course files on the main page of the repository.
 
 The link should look similar to:
 
-`https://github.com/<instructor-or-course-account>/<student-template-repo>`
+`https://github.com/iabouemira95/gha-cicd-course-student`
 
 Important:
 
