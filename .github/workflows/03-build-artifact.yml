@@ -1,0 +1,43 @@
+# This workflow packages the verified app.
+# It is manual on purpose so Day 1 stays focused on CI.
+name: 03 Build Artifact Workflow
+
+on:
+  # Students start this workflow manually from the Actions tab.
+  workflow_dispatch:
+
+jobs:
+  build-package:
+    # Use a fresh GitHub-hosted runner for the build.
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        # Get the repository files onto the runner.
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        # Prepare Python so the workflow can run the tests first.
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Run tests
+        # Build only after the verification step passes.
+        run: python -m unittest discover -s tests -v
+
+      - name: Build Docker image
+        # Create the packaged application image.
+        run: docker build -t tiny-health-app:latest .
+
+      - name: Save Docker image as artifact file
+        # Convert the image into a file that can be uploaded and reused later.
+        run: docker save tiny-health-app:latest -o tiny-health-app.tar
+
+      - name: Upload build artifact
+        # Store the packaged output so a later workflow can use the exact same package.
+        uses: actions/upload-artifact@v4
+        with:
+          name: tiny-health-app-image
+          path: tiny-health-app.tar
+          retention-days: 7
