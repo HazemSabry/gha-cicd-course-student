@@ -18,6 +18,12 @@ We will follow one simple story through the whole course:
 - Change one thing at a time, especially in YAML files.
 - If a workflow fails, read the logs before changing more files.
 
+## Core versus Optional
+
+During the main course, focus on Labs `01` to `05`.
+
+If you see workflows `05` or `06` in the `Actions` tab, treat them as optional and ignore them unless your instructor explicitly asks you to open them.
+
 ## Before Class
 
 Use these files first:
@@ -36,12 +42,15 @@ How do we know a change is still safe?
 Open these files during Day 1:
 
 1. [Course Story with Diagrams](docs/course-story/README.md)
-2. [Course Map](docs/00-course-map.md)
-3. [Our Tiny Example App](docs/01-our-tiny-example-app.md)
-4. [Runner Mental Model](docs/help/00-runner-mental-model.md)
-5. [Lab 01: First Workflow](labs/LAB-01-first-workflow.md)
-6. [How to Read Actions Logs](docs/help/01-how-to-read-actions-logs.md)
-7. [Lab 02: Real CI Workflow](labs/LAB-02-real-ci-workflow.md)
+2. [Lab 01: First Workflow](labs/LAB-01-first-workflow.md)
+3. [How to Read Actions Logs](docs/help/01-how-to-read-actions-logs.md)
+4. [Lab 02: Real CI Workflow](labs/LAB-02-real-ci-workflow.md)
+
+Use these supporting pages only when you need them:
+
+1. [Course Map](docs/00-course-map.md)
+2. [Our Tiny Example App](docs/01-our-tiny-example-app.md)
+3. [Runner Mental Model](docs/help/00-runner-mental-model.md)
 
 ## Day 2
 
@@ -68,7 +77,7 @@ Use these after the main course if you want a little more context:
 5. [Next Steps: Matrix and Secrets](docs/06-next-steps-matrix-and-secrets.md)
 6. [Full Containerized CI/CD Example](docs/07-full-containerized-cicd-example.md)
 7. [How ACR and AKS Fit the Story](docs/08-how-acr-and-aks-fit-the-story.md)
-8. [06 Azure ACR and AKS Example Workflow](.github/workflows/06-azure-acr-aks-example.yml)
+8. [91 OPTIONAL Example - Azure ACR and AKS Workflow](.github/workflows/06-azure-acr-aks-example.yml)
 9. [Lab 06: Full Containerized CI/CD Pipeline](labs/LAB-06-full-containerized-cicd-pipeline.md)
 
 ## After Day 2

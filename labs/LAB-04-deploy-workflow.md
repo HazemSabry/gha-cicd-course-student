@@ -26,7 +26,7 @@ This workflow teaches delivery using the package created earlier:
 - `workflow_run` starts deploy after the build workflow finishes
 - `Download build artifact` gets the saved package
 - `Load Docker image` restores that package as an image
-- `Start container` runs the packaged app
+- `Start container` runs the exact same tagged image from the build run
 - `Smoke test deployed app` checks that the app responds
 
 ## Step 1: Read the Workflow File
@@ -81,6 +81,10 @@ You should see a successful response from:
 ## What You Should Notice
 
 This workflow is important because it uses the exact packaged output from the build workflow.
+
+It is not rebuilding the app.
+
+It is loading and running the same tagged image that the build workflow already created.
 
 That is the delivery idea we wanted to reach in this course.
 

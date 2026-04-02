@@ -2,7 +2,7 @@
 # It shows how the same CI/CD story can extend to Azure Container Registry and AKS.
 # It is visible in the Actions tab, but it is not part of the core beginner labs.
 # Do not run it unless the required Azure and registry secrets are configured.
-name: 06 Azure ACR and AKS Example
+name: 91 OPTIONAL Example - Azure ACR and AKS (Do Not Run Unless Instructed)
 
 on:
   # Keep this example visible without triggering it automatically during class.

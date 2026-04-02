@@ -95,6 +95,31 @@ Check these things:
 2. refresh the `Actions` page
 3. open `04 Deploy Workflow`
 
+## I See Extra Workflows in the `Actions` Tab
+
+That can happen because the repository also contains optional example workflows.
+
+For the main course, focus on:
+
+- `01 Hello Workflow`
+- `02 CI Workflow`
+- `03 Build Artifact Workflow`
+- `04 Deploy Workflow`
+
+If you are in the main course labs, ignore optional workflows unless your instructor tells you to use them.
+
+## I Accidentally Ran an Optional Workflow
+
+That is recoverable.
+
+Do this:
+
+1. stop changing files for that optional workflow
+2. go back to the workflow or lab your instructor is teaching now
+3. continue with the core lab steps
+
+Ask your instructor for help only if the accidental run is blocking your current lab.
+
 ## I Am Confused About Image versus Container
 
 Use this short rule:

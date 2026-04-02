@@ -18,6 +18,12 @@ The project and its files inside GitHub.
 
 A saved output produced by a workflow.
 
+## ACR
+
+Azure Container Registry.
+
+In the optional example, it is the place where the built container image is stored.
+
 ## Build
 
 The step where we create a package from the application.
@@ -72,6 +78,12 @@ To copy the repository files onto the runner so the workflow can use them.
 
 A packaged version of the application.
 
+## Image Tag
+
+A readable label attached to a Docker image, such as `run-123`.
+
+It helps us refer to one exact built image.
+
 ## Matrix
 
 A workflow pattern that repeats the same job across multiple values, such as Python versions or operating systems.
@@ -84,9 +96,25 @@ A group of steps that runs on one machine in a workflow.
 
 The detailed output produced while a workflow step runs.
 
+## Latest
+
+A common Docker image tag name.
+
+It is convenient, but it is less precise than a traceable tag such as `run-123`.
+
 ## Push
 
 To send local commits to GitHub.
+
+## Registry
+
+A place where container images are stored, such as Azure Container Registry.
+
+## AKS
+
+Azure Kubernetes Service.
+
+In the optional example, it represents the place where the packaged app is updated and run.
 
 ## Runner
 
@@ -111,6 +139,12 @@ One individual action inside a job.
 ## Trigger
 
 The event that starts a workflow.
+
+## Template Repository
+
+A GitHub repository that is meant to be copied into new repositories.
+
+In this course, students create their own practice repo from the student template.
 
 ## Workflow
 

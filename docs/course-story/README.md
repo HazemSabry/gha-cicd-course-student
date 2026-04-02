@@ -115,6 +115,23 @@ Each workflow adds one idea:
 - `04 Deploy Workflow` shows delivery using the saved package
 - `LAB-05` connects the full story end to end
 
+## How the Built Package Moves Forward
+
+```mermaid
+flowchart LR
+    A["03 Build Artifact Workflow"] --> B["Build tagged image"]
+    B --> C["Save image as artifact"]
+    C --> D["04 Deploy Workflow"]
+    D --> E["Load same tagged image"]
+    E --> F["Run smoke test"]
+```
+
+This is the Day 2 promise:
+
+- build creates the package
+- the package is saved
+- deploy uses that same package
+
 ## Factory and Shipping Analogy
 
 If the course feels abstract, use this analogy:

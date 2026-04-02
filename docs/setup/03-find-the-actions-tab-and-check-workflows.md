@@ -34,6 +34,10 @@ If you do not see any workflow runs yet, that is okay.
 
 The first lab will create the first run.
 
+If you also see workflows with names that start with `OPTIONAL`, do not worry.
+
+Those are extra example workflows and are not part of the core starting path.
+
 ## Step 4: If GitHub Asks You to Enable Workflows
 
 In many student repositories, GitHub Actions is already ready to use.
@@ -62,6 +66,15 @@ Continue only when all items below are true:
 - I can find the `Actions` tab
 - I can open the `Actions` page
 - I can find `.github/workflows/01-hello.yml`
+
+## Setup Self-Check
+
+Before the first lab starts, you should be able to say:
+
+- I am in my own repository
+- I know where the `Actions` tab is
+- I know where the first workflow file is
+- I am ready to follow the lab one step at a time
 
 ## Common Problems
 

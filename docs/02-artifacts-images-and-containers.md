@@ -43,6 +43,20 @@ In this course, think of the image as:
 
 You do not need deep Docker internals for this course.
 
+## What Is an Image Tag
+
+An image tag is a readable label attached to an image.
+
+In this course, a tag like `run-123` helps us talk about one exact built image.
+
+That matters because we want to say:
+
+"Deploy the exact image from this build run."
+
+You may also see tags such as `latest` in optional examples.
+
+For the core course, the traceable run tag is the most important one to remember.
+
 ## What Is a Container
 
 A container is a running instance created from an image.
@@ -74,7 +88,7 @@ The build workflow will:
 1. check out the repository
 2. set up Python
 3. run the tests
-4. build a Docker image
+4. build a Docker image with a traceable tag
 5. save that image as a file
 6. upload that file as a workflow artifact
 

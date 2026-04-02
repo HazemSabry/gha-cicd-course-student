@@ -9,6 +9,8 @@ Your goal is to follow one small code change through the full course story:
 3. package
 4. deliver
 
+If you notice optional workflows in the `Actions` tab, ignore them during this lab unless your instructor asks you to open them.
+
 ## Why This Lab Matters
 
 The earlier labs taught the pieces one by one.

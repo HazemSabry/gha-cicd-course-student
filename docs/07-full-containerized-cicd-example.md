@@ -12,6 +12,8 @@ The main course uses small separate workflows because that is the best way to te
 
 After that core path feels clear, it helps to see how the same story can appear in one larger workflow.
 
+This workflow is manual-only on purpose so it does not distract from the core labs.
+
 ## What Makes This Example More Production-Like
 
 This optional example adds a few ideas that are common in real pipelines:

@@ -25,6 +25,8 @@ Open this file in your repository:
 
 This is an optional advanced-beginner lab.
 
+It is not part of the main Day 1 or Day 2 core lab path.
+
 Do this after you are already comfortable with:
 
 - `02 CI Workflow`
@@ -76,7 +78,7 @@ In this course, you will now see two common container build shapes.
 
 ### Version 1: plain `docker build`
 
-This is the version used in the runnable course workflows:
+This is one plain `docker build` shape used in this repository:
 
 ```bash
 docker build \
@@ -90,6 +92,10 @@ This is good for learning:
 - build the image
 - add tags
 - save it as an artifact
+
+In the core build workflow, the course keeps the tag story simpler and uses one traceable run tag.
+
+In this optional fuller example, you also see `latest` so students can recognize a common real-world pattern.
 
 ### Version 2: `docker buildx build --push`
 
@@ -135,7 +141,7 @@ Commit the change in GitHub with a simple message like:
 
 Open the `Actions` tab.
 
-Open `05 Full Containerized CI/CD Workflow`.
+Open `90 OPTIONAL Full Containerized CI/CD Workflow`.
 
 Open the newest run.
 
@@ -178,6 +184,8 @@ Look for these steps:
 - `Deploy image to AKS`
 
 You are not required to run this workflow in class.
+
+It is visible for learning, but it should be treated as an optional example unless your instructor explicitly asks you to open it.
 
 You are using it to see how the same story grows in a more realistic pipeline.
 

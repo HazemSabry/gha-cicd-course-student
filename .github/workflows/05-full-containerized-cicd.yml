@@ -1,18 +1,9 @@
 # This optional workflow shows a fuller CI/CD shape in one file.
 # It stays beginner-safe by keeping containerization real but deployment simulated.
-name: 05 Full Containerized CI/CD Workflow
+name: 90 OPTIONAL Full Containerized CI/CD Workflow
 
 on:
-  # Run automatically when the app, tests, Dockerfile, or this workflow changes on main.
-  push:
-    branches:
-      - main
-    paths:
-      - "app/**"
-      - "tests/**"
-      - "Dockerfile"
-      - ".github/workflows/05-full-containerized-cicd.yml"
-  # Allow a safe manual run while students are still learning.
+  # Keep this optional example manual-only so it does not distract from the core labs.
   workflow_dispatch:
 
 env:

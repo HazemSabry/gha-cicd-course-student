@@ -41,8 +41,12 @@ jobs:
         run: docker load --input downloaded-artifact/tiny-health-app.tar
 
       - name: Start container
-        # Start the packaged app from that image.
-        run: docker run -d --name tiny-health-container -p 8000:8000 tiny-health-app:latest
+        # Start the exact same tagged image that the build workflow created.
+        run: |
+          docker run -d \
+            --name tiny-health-container \
+            -p 8000:8000 \
+            "tiny-health-app:run-${{ github.event.workflow_run.run_number }}"
 
       - name: Smoke test deployed app
         # Retry a few times because app startup can take a moment.

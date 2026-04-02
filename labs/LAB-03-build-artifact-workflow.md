@@ -51,7 +51,6 @@ The core packaging command in this lab is:
 ```bash
 docker build \
   -t "tiny-health-app:run-123" \
-  -t "tiny-health-app:latest" \
   .
 ```
 
@@ -60,10 +59,11 @@ What this means:
 - `docker build` builds an image from the `Dockerfile`
 - `-t` adds a tag to the image
 - `run-123` stands for one traceable tag for one build
-- `latest` is a second easy-to-read tag
 - `.` means "build using the current folder"
 
-For this course, this is the first and simplest build shape to learn.
+For this course, this is the simplest build shape to learn.
+
+If you want a quick reminder about image tags, use [Artifacts, Images, and Containers](../docs/02-artifacts-images-and-containers.md).
 
 ## Step 3: Run the Workflow Manually
 
@@ -112,6 +112,12 @@ Try to describe the workflow like this:
 This workflow is important because it creates a reusable output.
 
 That output can be used later in deployment instead of rebuilding from scratch again.
+
+You should also notice that tests still run here.
+
+That is intentional:
+
+before packaging, we still keep one quick safety check inside the same workflow.
 
 You should also notice that tagging starts to answer a useful real-world question:
 

@@ -4,6 +4,10 @@
 
 This file shows the full story of the course before we start using tools.
 
+During class, follow the student `README.md` and the labs first.
+
+Use this page as a reference map when you want the big picture.
+
 The goal is to understand why CI/CD exists and how each new step solves a real problem.
 
 ## The Main Problem

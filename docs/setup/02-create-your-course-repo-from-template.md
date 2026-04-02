@@ -35,6 +35,8 @@ Near the top of the repository page, click `Use this template`.
 
 Then choose `Create a new repository`.
 
+Those are the exact button labels most students should look for.
+
 If you do not see that button, ask your instructor to confirm that the course repository is marked as a template repository.
 
 ## Step 3: Choose Your New Repository Settings
@@ -68,6 +70,10 @@ At the top of the repository page, look for the `Actions` tab.
 You may not see workflow runs yet, and that is okay.
 
 For this course, it is important that you know where this tab is before we start workflows.
+
+You may also see optional workflows later in the repository.
+
+For the main course, you should still focus only on the workflows your instructor asks you to open.
 
 ## Common Problems
 

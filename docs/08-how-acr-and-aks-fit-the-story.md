@@ -6,6 +6,8 @@ This page shows how the same CI/CD story can extend to a cloud-shaped workflow.
 
 This is an example page, not a core beginner lab.
 
+Do not run the Azure example workflow unless your instructor explicitly asks you to.
+
 ## Why This Page Exists
 
 Some students want to see how the course workflow ideas connect to real cloud delivery work.
@@ -35,7 +37,7 @@ In this project, it helps to recognize two very common patterns.
 
 ### 1. Build and tag with `docker build`
 
-This is the simpler shape used in the runnable course workflows:
+This is one simple `docker build` shape used in this repository:
 
 ```bash
 docker build \
@@ -50,6 +52,10 @@ This shape teaches:
 - add one or more tags
 - keep the image inside the workflow runner
 - save it as a GitHub artifact if needed
+
+In the core build workflow, we keep the tag story very simple and use one traceable run tag.
+
+In the optional fuller example, you can also see a `latest` tag added for comparison.
 
 ### 2. Build, tag, and push with `docker buildx build --push`
 
@@ -87,6 +93,11 @@ In the main course labs, we carry the package forward with a GitHub Actions arti
 
 In the Azure-shaped example, we carry the package forward by pushing the image to ACR.
 
+| Course shape | What carries the packaged output forward |
+|---|---|
+| beginner core labs | GitHub Actions artifact |
+| Azure-shaped example | pushed image in ACR |
+
 ## What AKS Means Here
 
 AKS is Azure Kubernetes Service.
@@ -109,6 +120,8 @@ Open this workflow file to see a sanitized example:
 - [06-azure-acr-aks-example.yml](../.github/workflows/06-azure-acr-aks-example.yml)
 
 It is visible in the `Actions` tab, but it does not trigger automatically.
+
+It is still optional and should be ignored during the core labs unless your instructor says otherwise.
 
 ## How to Read the Example Workflow
 

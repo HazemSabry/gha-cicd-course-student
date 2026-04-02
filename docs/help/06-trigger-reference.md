@@ -32,6 +32,19 @@ Workflows can also use inputs with `workflow_dispatch`, but we do not need that 
 
 In this course, deploy uses that pattern after the build workflow.
 
+## Why This Course Uses Different Trigger Types
+
+The trigger choices in this course are intentional:
+
+- `01 Hello Workflow` can be run manually so the first experience feels safe
+- `02 CI Workflow` uses `push` because code changes should trigger verification
+- `03 Build Artifact Workflow` is manual so Day 2 packaging stays controlled and easy to follow
+- `04 Deploy Workflow` uses `workflow_run` because delivery should start only after build succeeds
+
+The goal is not to show every trigger.
+
+The goal is to match the trigger to the problem we are solving.
+
 ## Pull Request Trigger: `pull_request`
 
 `pull_request` starts a workflow when code is proposed for review.

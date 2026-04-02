@@ -30,6 +30,15 @@ This helps us stay focused on:
 3. deliver the exact package
 4. confirm the deployed app responds
 
+```mermaid
+flowchart LR
+    A["03 Build Artifact Workflow"] --> B["Artifact: tiny-health-app.tar"]
+    B --> C["04 Deploy Workflow"]
+    C --> D["Load image"]
+    D --> E["Run container"]
+    E --> F["Smoke test /health"]
+```
+
 ## What the Deploy Workflow Does
 
 The deploy workflow:
@@ -39,6 +48,16 @@ The deploy workflow:
 3. loads the Docker image from that artifact
 4. runs the application as a container
 5. checks `/health`
+
+## Why This Workflow Starts Automatically
+
+The deploy workflow uses `workflow_run` because deployment should happen only after the build workflow succeeds.
+
+That keeps the story clean:
+
+1. build the package first
+2. carry that package forward
+3. deliver it only after the build is ready
 
 ## Why This Matters
 
