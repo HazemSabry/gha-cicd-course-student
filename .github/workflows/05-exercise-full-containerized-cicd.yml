@@ -57,8 +57,8 @@ jobs:
         # This workflow uses plain docker build first because it is easier to read.
         # We add a traceable tag and a latest tag to the same image.
         run: |
-          docker build-arg \
-              BASE_IMAGE="python:${{ matrix.python-version }}-slim" \
+          docker build \
+            --build-arg BASE_IMAGE="python:${{ matrix.python-version }}-slim" \
             -t "${IMAGE_NAME}:${{ steps.image-tag.outputs.image_tag }}-${{ matrix.python-version }}" \
             -t "${IMAGE_NAME}:latest" \
             .
