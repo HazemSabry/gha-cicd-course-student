@@ -10,10 +10,9 @@ on:
   workflow_dispatch: 
 jobs:
     run-tests:
-        runs-on: ${{ matrix.os }}
+        runs-on: ubuntu-latest
         strategy:
             matrix:
-                os: [ubuntu-latest]
                 python-version: ["3.11, 3.12"]
         steps:
         - name: Check out repository
