@@ -69,7 +69,7 @@ jobs:
         with:
           context: .
           tags: "${{ env.IMAGE_NAME }}:${{ steps.image-tag.outputs.image_tag }}-${{ matrix.python-version }}"
-          outputs: type=docker,dest=${{ env.IMAGE_TAR }}
+          outputs: type=docker,dest=${{ env.IMAGE_TAR }}-${{ matrix.python-version }}
 
       - name: Upload build artifact
         # Store the packaged output so a later workflow can use the exact same package.
