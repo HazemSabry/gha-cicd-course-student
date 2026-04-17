@@ -1,0 +1,40 @@
+name: Build and Push to ECR
+
+on:
+  workflow_dispatch:
+
+# 🚨 REQUIRED: This grants the workflow permission to request the OIDC token
+permissions:
+  id-token: write
+  contents: read 
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Authenticate to AWS using OIDC
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/GitHub_Action_Course
+          aws-region: us-east-1
+
+      # Log in to ECR (AWS now knows who you are!)
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      # Build and push (Same as before)
+      - name: Build, tag, and push image to Amazon ECR
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: my-app-repo
+          IMAGE_TAG: latest
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
