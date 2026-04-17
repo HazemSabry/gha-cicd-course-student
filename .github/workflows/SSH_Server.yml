@@ -21,4 +21,4 @@ jobs:
 
       # 3. Execute your command (the agent handles authentication automatically)
       - name: Run remote deployment command
-        run: ssh user@44.200.17.104 "echo 'Hello from GitHub Actions!'"
+        run: ssh ubuntu@44.200.17.104 "echo 'Hello from GitHub Actions!'"
