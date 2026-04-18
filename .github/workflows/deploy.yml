@@ -21,8 +21,6 @@ permissions:
 
 jobs:
   deploy-package:
-    # Continue only when the build workflow succeeded.
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     # Use a fresh runner for the deployment simulation.
     runs-on: ubuntu-latest
 
