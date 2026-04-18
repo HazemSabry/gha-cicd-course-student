@@ -18,17 +18,21 @@ env:
   ECR_REPOSITORY: github-action-course/my-app-repo
   IMAGE_TAG: latest
 
-permissions:
-  # Read access is enough because this workflow only downloads artifacts and reads repo data.
-  actions: read
-  contents: read
-
 jobs:
   deploy-package:
     # Use a fresh runner for the deployment simulation.
     runs-on: ubuntu-latest
 
     steps:
+      # Authenticate to AWS using OIDC
+      - name: Configure AWS credentials
+        env:
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/GitHub_Action_Course
+          aws-region: us-east-1
+
       # Log in to ECR (AWS now knows who you are!)
       - name: Login to Amazon ECR
         id: login-ecr
