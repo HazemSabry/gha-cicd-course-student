@@ -3,14 +3,8 @@
 name: Deploy Workflow
 
 on:
-  #on merge to main
-  pull_request:
+  push:
     branches: [main]
-    paths:
-      - "app/**"
-      - "tests/**"
-      - ".github/workflows/04-deploy.yml"
-    types: [closed]
 
 env:
   IMAGE_NAME: tiny-health-app
@@ -26,8 +20,6 @@ permissions:
 
 jobs:
   deploy-package:
-    # Continue only when the build workflow succeeded.
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     # Use a fresh runner for the deployment simulation.
     runs-on: ubuntu-latest
 
