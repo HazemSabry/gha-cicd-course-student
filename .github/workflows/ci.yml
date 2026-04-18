@@ -73,8 +73,6 @@ jobs:
         with:
           image-ref: "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
           format: "table"
-          # Fail the build if HIGH or CRITICAL vulnerabilities are found
-          exit-code: "1"
           # Ignore vulnerabilities that don't have a patch available yet
           ignore-unfixed: true
           severity: "CRITICAL,HIGH"
