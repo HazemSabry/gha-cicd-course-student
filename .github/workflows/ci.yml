@@ -64,18 +64,15 @@ jobs:
         run: docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
 
         # 3. Scan the local image with Trivy BEFORE pushing
-      - name: Run Trivy vulnerability scanner
-        env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: github-action-course/my-app-repo
-          IMAGE_TAG: latest
+      - name: Run Trivy Security Scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-          format: "table"
-          # Ignore vulnerabilities that don't have a patch available yet
+          scan-type: fs
+          scan-ref: .
+          format: table
+          exit-code: 1
           ignore-unfixed: true
-          severity: "CRITICAL,HIGH"
+          severity: HIGH,CRITICAL
 
       # Build and push (Same as before)
       - name: Build, tag, and push image to Amazon ECR
