@@ -76,6 +76,10 @@ jobs:
           echo "App did not become ready in time."
           exit 1
 
+      - name: Show container running
+        # Quick visibility step so students can see the container is up.
+        run: docker ps --filter "name=${CONTAINER_NAME}"
+
       - name: Stop container
         if: always()
         # Clean up even if an earlier step fails.
