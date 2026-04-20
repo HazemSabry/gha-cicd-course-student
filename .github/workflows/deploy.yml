@@ -29,6 +29,14 @@ jobs:
     steps:
       - name: Deploy to Remote Server via SSH
         uses: appleboy/ssh-action@v0.1.10
+        env:
+          # Pass your GitHub Action environment variables to the SSH action
+          AWS_ACCOUNT_ID: ${AWS_ACCOUNT_ID}
+          AWS_REGION: ${AWS_REGION}
+          ECR_REPOSITORY: ${ECR_REPOSITORY}
+          IMAGE_TAG: ${IMAGE_TAG}
+          CONTAINER_NAME: ${CONTAINER_NAME}
+          APP_PORT: ${APP_PORT}
         with:
           host: ${SERVER_HOST}
           username: ${USERNAME}
