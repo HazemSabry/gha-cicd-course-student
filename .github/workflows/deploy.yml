@@ -31,16 +31,16 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         env:
           # Pass your GitHub Action environment variables to the SSH action
-          AWS_ACCOUNT_ID: ${AWS_ACCOUNT_ID}
-          AWS_REGION: ${AWS_REGION}
-          ECR_REPOSITORY: ${ECR_REPOSITORY}
-          IMAGE_TAG: ${IMAGE_TAG}
-          CONTAINER_NAME: ${CONTAINER_NAME}
-          APP_PORT: ${APP_PORT}
+          AWS_ACCOUNT_ID: ${{ env.AWS_ACCOUNT_ID }}
+          AWS_REGION: ${{ env.AWS_REGION }}
+          ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
+          IMAGE_TAG: ${{ env.IMAGE_TAG }}
+          CONTAINER_NAME: ${{ env.CONTAINER_NAME }}
+          APP_PORT: ${{ env.APP_PORT }}
         with:
-          host: ${SERVER_HOST}
-          username: ${USERNAME}
-          key: ${SSH_PRIVATE_KEY}
+          host: ${{ env.SERVER_HOST }}
+          username: ${{ env.USERNAME }}
+          key: ${{ env.SSH_PRIVATE_KEY }}
           # Explicitly tell the action to send these env vars to the server
           envs: AWS_ACCOUNT_ID,AWS_REGION,ECR_REPOSITORY,IMAGE_TAG,CONTAINER_NAME,APP_PORT
           script: |
